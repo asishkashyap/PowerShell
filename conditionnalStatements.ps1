@@ -99,7 +99,7 @@ foreach ($i in $numbers) {
     if ($i -gt 18) {
         Write-Output " Person is adult: Age is $i" | Add-Content -Path ""
     }
-    elseif ($i -eq 80){
+    elseif ($i - 80){
           Write-Host "Person is an Senior Citizen"
     }
     else {
@@ -109,7 +109,7 @@ foreach ($i in $numbers) {
 
 $numbers = @(12, 19, 20, 30, 80)
 foreach ($i in $numbers) {
-    switch ($number) {
+    switch ($i) {
     { $_ -eq 18 } { Write-Host " Person is adult" }
     { $_ -lt 18 } { Write-Host " Person is Teenager" }
     Default { Write-Host "No age provided" }
