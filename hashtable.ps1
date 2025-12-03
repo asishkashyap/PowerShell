@@ -63,7 +63,7 @@ foreach ($i in $apps) {
 #Pipeline --> ci/cd, ci's Artifact gets deployed by cd
 #             1  --> 2
 # Output of a command is used by other command as input
-# $_.  --> represents left side output
+# $_  --> represents left side output
 
 "DeVops_Insiders" | ForEach-Object {$_.ToUpper()}
 $AppName = "WebClient"
@@ -75,3 +75,17 @@ Get-Service | Where-Object {$_.Name -eq $AppName} | Select-Object Status  # Neve
 Get-ChildItem -Path "C:\Users\s\Documents" | Where-Object {$_.Length -lt 1Mb}
 
 
+"Hello Friends" | Set-Content -Path "C:\Users\s\Documents\helloFriends.txt"  # Pipeline 
+Write-Output 4546 | Set-Content -Path "C:\Users\s\Documents\helloFriends.txt"  # Pipeline 
+
+
+$AppName = "WebClient"
+Get-Service | Where-Object {$_.Name -eq $AppName} | Select-Object Status
+
+$ips = Get-Content $vmIps.json | ConvertFrom-Json
+
+do {
+    $ips++ 
+} while (
+    $ips.count -eq 100
+)
